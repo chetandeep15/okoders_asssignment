@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <%=@question.question_text%>
+  </div>
+  <div>
+    <%= @question.topic.name%>
+    <%= link_to('<button type="button" class="follow_topic">Follow Topic</button>'.html_safe, follow_topic_users_path(topic_id: @question.topic_id), method: :post) %>
+  </div>
+  <div>
+    <%= @question.user.name%>
+    <%= link_to('<button type="button" class="follow_topic">Follow User</button>'.html_safe, follow_user_users_path(following_id: @question.user_id), method: :post) %>
+  </div>
+
+  <div>
+    <%@question.answers.each do |answer|%>
+      <div class="answer"> <%= answer %></div>
+    <% end %>
+  </div>
+</div>
